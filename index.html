@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生ポートフォリオ | 飯島 瑛太</title>
     <style>
-        /* === 基本設定 === */
+        /* === 基本設定 (堅実なフォントとカラー) === */
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Yu Gothic', 'Meiryo', sans-serif; /* 堅実なフォント */
             margin: 0;
             padding: 0;
             line-height: 1.8;
             color: #333;
-            background-color: #f4f7f6; /* ごく薄いグレー */
+            background-color: #ffffff; /* 背景はクリーンな白 */
         }
 
         a {
-            color: #1a73e8; /* アクセントカラー */
+            color: #003366; /* メインアクセントカラー (濃いネイビー) */
             text-decoration: none;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #0b499b;
+            color: #001a33;
         }
 
-        /* === ヘッダー (ナビゲーション) === */
+        /* === ヘッダー (大学の格式を意識) === */
         header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background-color: #003366; /* メインカラーを背景に */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -45,39 +45,47 @@
         }
 
         .logo {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 700;
-            color: #333;
+            color: #ffffff; /* 白文字で視認性向上 */
+            border-right: 2px solid #336699; /* わずかな区切り */
+            padding-right: 20px;
+            margin-right: 10px;
         }
 
         .nav-links a {
-            margin-left: 25px;
+            margin-left: 20px;
             font-weight: 500;
-            color: #555;
+            color: #cccccc;
             font-size: 0.95em;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #1a73e8;
+            color: #ffffff;
+            background-color: #004080;
         }
 
-        /* === ヒーローセクション (トップ) === */
+        /* === ヒーローセクション (落ち着いたトーン) === */
         .hero {
-            background-color: #e3f2fd; /* 淡いブルー */
+            background-color: #003366; /* ネイビーで統一 */
+            color: #ffffff;
             padding: 80px 20px;
             text-align: center;
             margin-bottom: 40px;
         }
 
         .hero h1 {
-            font-size: 2.8em;
+            font-size: 2.5em;
             margin-bottom: 10px;
-            color: #212121;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2em;
-            color: #555;
+            font-size: 1.1em;
+            color: #eeeeee;
             max-width: 700px;
             margin: 0 auto;
         }
@@ -90,11 +98,12 @@
         }
 
         .section h2 {
-            font-size: 2em;
-            color: #212121;
-            border-left: 5px solid #1a73e8;
-            padding-left: 10px;
+            font-size: 1.8em;
+            color: #003366;
+            border-bottom: 3px solid #003366; /* 力強い区切り線 */
+            padding-bottom: 8px;
             margin-bottom: 30px;
+            font-weight: 600;
         }
 
         /* === 自己紹介セクション特有のスタイル === */
@@ -102,89 +111,254 @@
             display: flex;
             gap: 40px;
             align-items: flex-start;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
         }
         
-        .profile-text {
-            flex-grow: 1;
-        }
-
         .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            border-radius: 4px; /* 丸ではなく角丸で堅実に */
             object-fit: cover;
-            background-color: #ccc; /* 写真がない場合のプレースホルダー */
-            border: 4px solid #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ccc;
+            border: 2px solid #003366;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
         }
 
-        /* === スキルセクション === */
+        /* === スキルセクション (シンプルに) === */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
 
         .skill-item {
-            background-color: #ffffff;
+            background-color: #f9f9f9; /* わずかに背景色を付けて強調 */
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            border-top: 3px solid #1a73e8;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #003366; /* 縦のラインで強調 */
         }
 
         .skill-item h3 {
             margin-top: 0;
             font-size: 1.1em;
-            color: #333;
-        }
-        
-        /* --- 💡 スキル習熟度バーのスタイル (新規/改良) --- */
-        .skill-level {
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            height: 8px;
-            margin-top: 10px;
-            overflow: hidden;
+            color: #003366;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
         }
 
-        .skill-bar {
-            height: 100%;
-            background-color: #1a73e8; /* アクセントカラー */
-            transition: width 0.8s ease-out;
-        }
-
-        /* スキルタグ */
-        .skill-tag {
-            display: inline-block;
-            background-color: #e8f0fe;
-            color: #1a73e8;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-top: 10px;
-            margin-right: 5px;
-        }
-
-        .skill-tag.secondary {
-            background-color: #fce8e6;
-            color: #d93025;
-        }
-        /* ----------------------------------------------- */
-
-
-        /* === プロジェクトセクション === */
+        /* === プロジェクトセクション (堅実なカード) === */
         .project-card {
             background-color: #ffffff;
-            border-radius: 8px;
+            border-radius: 4px;
             overflow: hidden;
             margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: #003366;
+            transform: none; /* ホバー時の浮き上がりを抑制 */
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            color: #003366;
+            margin-top: 0;
+            font-size: 1.3em;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .project-content p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background-color: #003366;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background-color: #004080;
+        }
+
+        /* === フッター (所属と権利を明確に) === */
+        footer {
+            background-color: #333333; /* 濃いめのグレー */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        .contact-links a {
+            color: #ffffff;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-links a:hover {
+            color: #cccccc;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .profile-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-photo {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">🇯🇵 飯島 瑛太 | 学生ポートフォリオ</div>
+            <div class="nav-links">
+                <a href="#about">自己紹介</a>
+                <a href="#skills">スキル</a>
+                <a href="#projects">プロジェクト</a>
+                <a href="#contact">連絡先</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>学業と実務経験を兼ね備えた学生エンジニア</h1>
+        <p>真摯な姿勢で課題に取り組み、確かな技術力と組織貢献を目指します。</p>
+        <p style="margin-top: 20px; font-weight: bold; color: #ffcc00;">
+            〇〇大学 〇〇学部 〇年 在籍
+        </p>
+    </div>
+
+    <section id="about" class="section">
+        <h2>✅ 飯島 瑛太 自己紹介 (Profile)</h2>
+        <div class="profile-content">
+            
+            
+            <div class="profile-text">
+                <p>
+                    **飯島 瑛太**（いいじま えいた）です。〇〇大学〇〇学部〇年に在籍しています。<br>
+                    学術的な知見に基づき、Web開発（フロントエンド/バックエンド）及びデータ分析技術を習得。机上の学習に留まらず、実務レベルでの貢献を目指し研鑽を積んでいます。
+                </p>
+
+                <h3>重点的に取り組んだこと（ガクチカ）</h3>
+                <p>
+                    大学の部活動（〇〇部）で、運営役職として組織の危機を乗り越えました。部員激減時、私は**「自身の役割を超えた責務の遂行」**を方針とし、新入生勧誘資料の企画・作成や備品管理、広報活動など、手が回らない業務を全て自発的に引き受けました。
+                </p>
+                <p>
+                    結果として、上級生の活動負荷を軽減し、部活動を安定運営に導きました。この経験は、**組織全体の目標達成に向け、自律的に行動し、責任範囲を拡大して貢献する主体性**の礎となっています。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="skills" class="section">
+        <h2>💻 技術スキル (Technical Skills)</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>フロントエンド技術</h3>
+                <p>HTML, CSS (Sass), JavaScript (React/Vue.jsの学習経験あり)</p>
+                <p style="font-size: 0.9em; color: #003366; font-weight: bold;">[習熟度: 高]</p>
+            </div>
+            <div class="skill-item">
+                <h3>バックエンド技術</h3>
+                <p>Python (Django/Flask), PHP (Laravelの学習経験あり)</p>
+                <p style="font-size: 0.9em; color: #003366; font-weight: bold;">[習熟度: 中]</p>
+            </div>
+            <div class="skill-item">
+                <h3>データベース・環境構築</h3>
+                <p>MySQL, PostgreSQL, Docker (基礎的な利用)</p>
+                <p style="font-size: 0.9em; color: #003366; font-weight: bold;">[習熟度: 中]</p>
+            </div>
+            <div class="skill-item">
+                <h3>その他・開発プロセス</h3>
+                <p>Git, VS Code, Figma (ワイヤーフレーム), チーム開発経験</p>
+                <p style="font-size: 0.9em; color: #003366; font-weight: bold;">[習熟度: 高]</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="projects" class="section">
+        <h2>💼 開発実績 (Projects)</h2>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>1. チーム開発Webアプリケーション（学内課題提出支援）</h3>
+                <p>
+                    **概要**: 学内の課題提出および評価プロセスを効率化するためのプラットフォーム開発。<br>
+                    **担当**: 主に**バックエンド開発（Python/Django）**。API設計及びデータベーススキーマ設計に従事。<br>
+                    **貢献**: チーム内の**コードレビュー基準の策定**および**開発環境のDockerコンテナ化**により、開発効率を20%向上させました。
+                </p>
+                <a href="#" target="_blank" class="project-link">詳細資料へ/GitHub</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>2. 個人制作 ポートフォリオサイト構築（静的サイトジェネレーター利用）</h3>
+                <p>
+                    **概要**: 自身の学習成果や技術ブログ記事を統合的に発信する静的サイト。<br>
+                    **技術**: HTML5, CSS3, JavaScript (アニメーション), **〇〇 (静的サイトジェネレーター名)**<br>
+                    **工夫**: パフォーマンス最適化（特にロード時間）を徹底。モバイル環境での視認性を重視したレスポンシブデザインを適用。
+                </p>
+                <a href="#" target="_blank" class="project-link">詳細資料へ/デモ</a>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" class="section">
+        <h2>✉️ 連絡先 (Contact Information)</h2>
+        <p>
+            私の技術や経験に関し、ご質問やご提案がありましたら、以下よりご連絡ください。
+        </p>
+        <p>
+            **メール**: <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+            **GitHub**: <a href="[GitHubのURL]" target="_blank">[GitHubアカウント名]</a><br>
+            <span style="color: #666; font-size: 0.9em;">（上記プレースホルダーを実際の情報に置き換えてください）</span>
+        </p>
+    </section>
+
+    <footer>
+        <p style="margin-bottom: 5px;">【学歴・職務経歴等に関するお問い合わせ窓口】</p>
+        <div class="contact-links">
+            <a href="[GitHubのURL]" target="_blank">GitHub</a> | 
+            <a href="mailto:your.email@example.com">Email</a>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2025 飯島 瑛太. All Rights Reserved. | 〇〇大学 〇〇学部 所属</p>
+    </footer>
+
+</body>
+</html>
